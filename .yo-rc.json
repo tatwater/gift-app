@@ -1,0 +1,8 @@
+{
+  "vulcanjs-cli": {
+    "appName": "gift-app",
+    "isVulcan": true,
+    "packageManager": "npm",
+    "reactExtension": "jsx"
+  }
+}
