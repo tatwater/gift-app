@@ -4,7 +4,7 @@ import Users from 'meteor/vulcan:users';
 import schema from './schema.js';
 
 
-const Circles = createCollection({
+export const Circles = createCollection({
   collectionName: 'Circles',
   typeName: 'Circle',
   schema,
@@ -26,5 +26,3 @@ Circles.addDefaultView((terms) => ({
     }
   }
 }));
-
-export default Circles;

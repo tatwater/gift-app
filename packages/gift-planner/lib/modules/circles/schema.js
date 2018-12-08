@@ -42,6 +42,14 @@ const schema = {
     canCreate: ['members'],
     canUpdate: ['members'],
   },
+  greeting: {
+    label: 'Greeting',
+    type: String,
+    optional: true,
+    canRead: ['guests'],
+    canCreate: ['members'],
+    canUpdate: ['members'],
+  },
 };
 
 export default schema;

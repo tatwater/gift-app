@@ -1,6 +1,8 @@
 import '../components';
 
-import './circles/collection.js';
-import './gifts/collection.js';
+export { Circles } from './circles';
+export { Gifts } from './gifts';
 
-import './routes.js';
+import './fragments';
+import './routes';
+import './state';

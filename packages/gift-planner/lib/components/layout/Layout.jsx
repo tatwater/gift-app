@@ -6,8 +6,12 @@ class Layout extends Component {
   render() {
     return (
       <div>
-        { !this.props.currentUser ?
-          <Components.Onboarding /> :
+        { this.props.currentUser ? (
+          <div>
+            <Components.Navbar />
+            { this.props.children }
+          </div>
+        ) :
           <Components.SignIn />
         }
       </div>
@@ -15,4 +19,8 @@ class Layout extends Component {
   }
 }
 
-registerComponent({ name: 'Layout', component: Layout, hocs: [withCurrentUser] });
+registerComponent({
+  name: 'Layout',
+  component: Layout,
+  hocs: [withCurrentUser]
+});

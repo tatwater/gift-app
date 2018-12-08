@@ -1,32 +1,24 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import { Components, withMulti, withCurrentUser, registerComponent } from 'meteor/vulcan:core';
+import Users from 'meteor/vulcan:users';
 
-import { Circles } from '../../modules/circles';
 
-
-class CirclesList extends Component {
+class CircleMembersList extends Component {
   render() {
     return (
       <div>
         { this.props.loading ? <Components.Loading /> : (
           <div>
-            { Circles.options.mutations.create.check( this.props.currentUser ) ? (
-              <div>
-                <h4>Create a new Circle</h4>
-                <Components.SmartForm collection = { Circles } />
-              </div>
-            ) : null }
-
-            { this.props.results.map(circle => (
+            { this.props.results.map(user => (
               <Link
-                to={ '/' + circle._id }
-                key={ circle._id }
+                to={ '/' + this.props.circleID + '/' + user._id }
+                key={ user._id }
               >
                 <Components.Card
                   fields={ ['name'] }
-                  collection={ Circles }
-                  document={ circle }
+                  collection={ Users }
+                  document={ user }
                   currentUser={ this.props.currentUser }
                 />
               </Link>
@@ -48,12 +40,12 @@ class CirclesList extends Component {
 }
 
 const options = {
-  collection: Circles,
-  limit: 5,
+  collection: Users,
+  limit: 0,
 }
 
 registerComponent({
-  name: 'CirclesList',
-  component: CirclesList,
+  name: 'CircleMembersList',
+  component: CircleMembersList,
   hocs: [withCurrentUser, [withMulti, options]]
 });

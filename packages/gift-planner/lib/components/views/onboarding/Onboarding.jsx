@@ -14,4 +14,8 @@ class Onboarding extends Component {
   }
 }
 
-registerComponent({ name: 'Onboarding', component: Onboarding, hocs: [withCurrentUser] });
+registerComponent({
+  name: 'Onboarding',
+  component: Onboarding,
+  hocs: [withCurrentUser]
+});
